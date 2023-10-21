@@ -28,7 +28,7 @@ async def fetch_course_information_async(department, number, section, year='curr
     endpoint = f"{year}/{term}/{department}/{number}/{section}"
     url = f"{base_url}?{endpoint}"
 
-    url = "https://www.sfu.ca/bin/wcm/course-outlines?current/current/macm/101/d100"
+    # url = "https://www.sfu.ca/bin/wcm/course-outlines?current/current/macm/101/d100"
     
     async with aiohttp.ClientSession() as session:
         try:
