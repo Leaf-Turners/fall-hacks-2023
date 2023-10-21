@@ -1,4 +1,4 @@
-class instructor:
+class Instructor:
     def __init__(self, raw_data):
         self.name = raw_data.name
         self.last_name = raw_data.lastName

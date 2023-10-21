@@ -1,4 +1,4 @@
-class course_or_exam:
+class CourseOrExam:
     def __init__(self, raw_data):
         self.start_time = raw_data.startTime
         self.start_date = raw_data.startDate
