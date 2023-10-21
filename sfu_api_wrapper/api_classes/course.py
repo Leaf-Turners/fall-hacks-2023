@@ -1,52 +1,40 @@
 from .instructor import Instructor
 from .schedule import CourseSchedule
+from dataclasses import dataclass
 
 
+@dataclass
 class CourseOutline:
-    outline_path: str
-    delivery_method: str
-    departmental_ugrad_notes: str
-    designation: str
-    type: str
-    course_details: str
-    title: str
-    prerequisites: str
-    description: str
-    name: str
-    dept: str
-    educational_goals: str
-    class_number: str
-    short_note: str
-    number: str
-    section: str
-    units: str
-    corequisites: str
-    registrar_notes: str
-    grading_notes: str
-    term: str
-    notes: str
-    degree_level: str
-    instructors: list[Instructor]
-    course_schedule: list[CourseSchedule]
-    exam_schedule: list[CourseSchedule]
-
     def __init__(self, raw_data):
         raw_data_info = raw_data.get('info', {})
 
-        # Define a list of attribute names
-        attribute_names = [
-            'outlinePath', 'deliveryMethod', 'departmentalUgradNotes', 'designation',
-            'type', 'courseDetails', 'title', 'prerequisites', 'description',
-            'name', 'dept', 'educationalGoals', 'classNumber', 'shortNote',
-            'number', 'section', 'units', 'corequisites', 'registrarNotes',
-            'gradingNotes', 'term', 'notes', 'degreeLevel'
-        ]
+        self.outline_path = raw_data_info.get('outlinePath', '')
+        self.delivery_method = raw_data_info.get('deliveryMethod', '')
+        self.departmental_ugrad_notes = raw_data_info.get(
+            'departmentalUgradNotes', '')
+        self.designation = raw_data_info.get('designation', '')
+        self.type = raw_data_info.get('type', '')
+        self.course_details = raw_data_info.get('courseDetails', '')
+        self.title = raw_data_info.get('title', '')
+        self.prerequisites = raw_data_info.get('prerequisites', '')
+        self.description = raw_data_info.get('description', '')
+        self.name = raw_data_info.get('name', '')
+        self.department = raw_data_info.get('dept', '')
+        self.educational_goals = raw_data_info.get('educationalGoals', '')
+        self.class_number = raw_data_info.get('classNumber', '')
+        self.short_note = raw_data_info.get('shortNote', '')
+        self.number = raw_data_info.get('number', '')
+        self.section = raw_data_info.get('section', '')
+        self.units = raw_data_info.get('units', '')
+        self.corequisites = raw_data_info.get('corequisites', '')
+        self.registrar_notes = raw_data_info.get('registrarNotes', '')
+        self.grading_notes = raw_data_info.get('gradingNotes', '')
+        self.term = raw_data_info.get('term', '')
+        self.notes = raw_data_info.get('notes', '')
+        self.degree_level = raw_data_info.get('degreeLevel', '')
 
-        # Create attributes dynamically
-        for attribute_name in attribute_names:
-            setattr(self, attribute_name, raw_data_info.get(attribute_name, ''))
-
-        # Create instructors, course_schedule, and exam_schedule lists
+        # Use list comprehensions to create lists of instructors,
+        # course_schedule, and exam_schedule
         self.instructors = [Instructor(instructor_data) for instructor_data in raw_data.get('instructor', [])]
         self.course_schedule = [CourseSchedule(schedule_data) for schedule_data in raw_data.get('courseSchedule', [])]
         self.exam_schedule = [CourseSchedule(schedule_data) for schedule_data in raw_data.get('examSchedule', [])]
