@@ -1,4 +1,4 @@
-class CourseOrExam:
+class CourseSchedule:
     def __init__(self, raw_data):
         self.start_time = raw_data['startTime']
         self.start_date = raw_data['startDate']

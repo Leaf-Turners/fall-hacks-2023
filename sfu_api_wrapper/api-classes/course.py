@@ -1,3 +1,5 @@
+from instructor import Instructor
+from schedule import CourseSchedule
 class CourseOutline:
     def __init__(self, raw_data):
         self.outline_path = raw_data['outlinePath']
@@ -23,3 +25,15 @@ class CourseOutline:
         self.term = raw_data['term']
         self.notes = raw_data['notes']
         self.degree_level = raw_data['degreeLevel']
+        self.instructors = []
+        for instructor_raw_data in raw_data.instructor:
+            new_instructor = Instructor(instructor_raw_data)
+            self.instructors.append(new_instructor)
+        self.course_schedule = []
+        for courseSchedule_raw_data in raw_data.courseSchedule:
+            new_courseSchedule = CourseSchedule(courseSchedule_raw_data)
+            self.course_schedule.append(new_courseSchedule)
+        self.exam_schedule = []
+        for examSchedule_raw_data in raw_data.examSchedule:
+            new_examSchedule = CourseSchedule(examSchedule_raw_data)
+            self.course_schedule.append(new_examSchedule)
