@@ -3,6 +3,33 @@ from .schedule import CourseSchedule
 
 
 class CourseOutline:
+    outline_path: str
+    delivery_method: str
+    departmental_ugrad_notes: str
+    designation: str
+    type: str
+    course_details: str
+    title: str
+    prerequisites: str
+    description: str
+    name: str
+    dept: str
+    educational_goals: str
+    class_number: str
+    short_note: str
+    number: str
+    section: str
+    units: str
+    corequisites: str
+    registrar_notes: str
+    grading_notes: str
+    term: str
+    notes: str
+    degree_level: str
+    instructors: list[Instructor]
+    course_schedule: list[CourseSchedule]
+    exam_schedule: list[CourseSchedule]
+
     def __init__(self, raw_data):
         raw_data_info = raw_data.get('info', {})
 
