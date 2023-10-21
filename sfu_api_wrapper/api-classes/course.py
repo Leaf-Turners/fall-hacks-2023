@@ -2,29 +2,29 @@ from instructor import Instructor
 from schedule import CourseSchedule
 class CourseOutline:
     def __init__(self, raw_data):
-        self.outline_path = raw_data['outlinePath']
-        self.delivery_method = raw_data['deliveryMethod']
-        self.departmental_ugrad_notes = raw_data['departmentalUgradNotes']
-        self.designation = raw_data['designation']
-        self.type = raw_data['type']
-        self.course_details = raw_data['courseDetails']
-        self.title = raw_data['title']
-        self.prerequisites = raw_data['prerequisites']
-        self.description = raw_data['description']
-        self.name = raw_data['name']
-        self.dept = raw_data['dept']
-        self.educational_goals = raw_data['educationalGoals']
-        self.class_number = raw_data['classNumber']
-        self.short_note = raw_data['shortNote']
-        self.number = raw_data['number']
-        self.section = raw_data['section']
-        self.units = raw_data['units']
-        self.corequisites = raw_data['corequisites']
-        self.registrar_notes = raw_data['registrarNotes']
-        self.grading_notes = raw_data['gradingNotes']
-        self.term = raw_data['term']
-        self.notes = raw_data['notes']
-        self.degree_level = raw_data['degreeLevel']
+        self.outline_path = raw_data.get('outlinePath', '')
+        self.delivery_method = raw_data.get('deliveryMethod', '')
+        self.departmental_ugrad_notes = raw_data.get('departmentalUgradNotes', '')
+        self.designation = raw_data.get('designation', '')
+        self.type = raw_data.get('type', '')
+        self.course_details = raw_data.get('courseDetails', '')
+        self.title = raw_data.get('title', '')
+        self.prerequisites = raw_data.get('prerequisites', '')
+        self.description = raw_data.get('description', '')
+        self.name = raw_data.get('name', '')
+        self.dept = raw_data.get('dept', '')
+        self.educational_goals = raw_data.get('educationalGoals', '')
+        self.class_number = raw_data.get('classNumber', '')
+        self.short_note = raw_data.get('shortNote', '')
+        self.number = raw_data.get('number', '')
+        self.section = raw_data.get('section', '')
+        self.units = raw_data.get('units', '')
+        self.corequisites = raw_data.get('corequisites', '')
+        self.registrar_notes = raw_data.get('registrarNotes', '')
+        self.grading_notes = raw_data.get('gradingNotes', '')
+        self.term = raw_data.get('term', '')
+        self.notes = raw_data.get('notes', '')
+        self.degree_level = raw_data.get('degreeLevel', '')
         self.instructors = []
         for instructor_raw_data in raw_data.instructor:
             new_instructor = Instructor(instructor_raw_data)
