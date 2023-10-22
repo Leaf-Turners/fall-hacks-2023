@@ -51,6 +51,7 @@ fall-hacks-2023
 ## Acknowledgements
 - SFU API https://www.sfu.ca/outlines/help/api.html
 - aiohttp
+- Course Diggers https://coursediggers.com/
 
 ## GitHub Project Repository
 https://github.com/Leaf-Turners/fall-hacks-2023
