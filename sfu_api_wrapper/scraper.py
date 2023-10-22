@@ -38,5 +38,5 @@ async def median_getter(course_name):
 
 if __name__ == '__main__':
     user_input = input("Enter a course name: ")
-    result = asyncio.run(medianGetter(user_input))
+    result = asyncio.run(median_getter(user_input))
     print(result)

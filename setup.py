@@ -21,6 +21,6 @@ setup(
     url=url,
     long_description=long_description,
     packages=packages,
-    package_data={'sfu_api_wrapper': ['course_names_to_ids.json']},
+    package_data={'sfu_api_wrapper': ['course_name_to_ids.json']},
     install_requires=install_requires,
 )
