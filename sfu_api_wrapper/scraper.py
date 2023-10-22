@@ -5,7 +5,7 @@ import json
 COURSE_DIGGER_JSON_URL = "http://www.coursediggers.com/data/{}.json"
 
 # Load the course name to ID mapping from a JSON file
-with open('course_names_to_ids.json', 'r') as json_file:
+with open('course_name_to_ids.json', 'r') as json_file:
     course_name_to_id = json.load(json_file)
 
 async def fetch_course_data(session, course_id):
@@ -24,7 +24,8 @@ async def medianGetter(course_name):
         if 'name' in course_data and 'data' in course_data:
             course_name = course_data['name']
             median_grade = course_data['data'][0][0]
-            return f"Course Name: {course_name}, Median Grade: {median_grade}"
+            fail_rate = course_data['data'][0][1]  # Added to retrieve the fail rate
+            return f"Course Name: {course_name}, Median Grade: {median_grade}, Fail Rate: {fail_rate}%"
         else:
             return "Failed to fetch data for the course."
     else:

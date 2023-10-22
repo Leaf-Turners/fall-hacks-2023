@@ -22,8 +22,18 @@ import asyncio
 
 
 async def main():
+    # Get a course.
     data = await sfu_api_wrapper.course_offering('cmpt', '120', 'd100')
     print(data.instructors[0].name)
+        
+    # Get a list of all departments.
+    print(await sfu_api_wrapper.departments())
+    
+    # Get all years SFU's API supports.
+    print(await sfu_api_wrapper.years())
+    
+    # Get all terms in a certain year.
+    print(await sfu_api_wrapper.terms(2022))
 
 
 if __name__ == '__main__':
