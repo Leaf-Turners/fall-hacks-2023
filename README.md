@@ -30,7 +30,7 @@ fall-hacks-2023
    │  ├─ course.py
    │  ├─ instructor.py
    │  └─ schedule.py
-   ├─ course_names_to_ids.json
+   ├─ course_name_to_ids.json
    ├─ grades.py
    ├─ requests.py
    ├─ scraper.py
