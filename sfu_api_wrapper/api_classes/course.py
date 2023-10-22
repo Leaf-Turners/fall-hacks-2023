@@ -1,7 +1,7 @@
 from .instructor import Instructor
 from .schedule import CourseSchedule
 from dataclasses import dataclass
-from typing import List, Dict
+from typing import List, Dict, Any
 
 @dataclass
 class CourseOutline:
