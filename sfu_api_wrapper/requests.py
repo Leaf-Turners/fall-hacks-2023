@@ -1,5 +1,5 @@
 import aiohttp
-import json
+
 
 class CourseOutlinesAPI:
     base_url = "http://www.sfu.ca/bin/wcm/course-outlines"
