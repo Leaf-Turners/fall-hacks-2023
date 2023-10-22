@@ -1,5 +1,6 @@
 from setuptools import setup, find_packages
 
+
 name = "sfuapiwrapper"
 version = "1.0.0"
 description = "SFU API wrapper."
