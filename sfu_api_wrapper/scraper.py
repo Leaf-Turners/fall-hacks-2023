@@ -71,5 +71,5 @@ async def courseDiggerInfo(department: str, course_number: str) -> dict:
     
 if __name__ == '__main__':
     #user_input = input("Enter a course name: ")
-    result = asyncio.run(failRate('cmpt', '310'))
+    result = asyncio.run(courseDiggerInfo('cmpt', '310'))
     print(result)
