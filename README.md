@@ -1,7 +1,12 @@
-# Python API Wraper
-Fall hacks 2023.
+# Python SFU API Wrapper
 
 ## Description
+
+An asynchronous API wrapper for SFU's API.
+
+In the industry of development, the widespread usage of APIs has become abundant but necessary. With the diversity of
+course selection, being able to interact with SFU's course APIs will be able to turn over a new leaf for the scope of
+APIs.
 
 ## File Structure
 ```
@@ -25,7 +30,7 @@ fall-hacks-2023
    │  ├─ course.py
    │  ├─ instructor.py
    │  └─ schedule.py
-   ├─ course_names_to_ids.json
+   ├─ course_name_to_ids.json
    ├─ grades.py
    ├─ requests.py
    ├─ scraper.py
@@ -39,7 +44,40 @@ fall-hacks-2023
 
 ```
 
-## Steps
+## Steps To Set Up And Run Project
+
+### Initial Download Setup
+
+1. Download the source code.
+2. Make sure you have python installed.
+3. Run the command: `python setup.py sdist bdist_wheel`
+
+### Usage
+
+1. Use `pip` to install the module from the `dist` folder, for example: `pip install path/to/local/installation/dist/sfu_api_wrapper-1.0.0.tar.gz`
+2. Use the module like this:
+
+```python
+import sfu_api_wrapper
+import asyncio
+
+
+async def main():
+    data = await sfu_api_wrapper.course_offering('cmpt', '120', 'd100')
+    print(data.instructors[0].name)
+
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```
+
+Here are the wrapper functions provided by this API wrapper:
+- `await sfu_api_wrapper.course_offering('cmpt', '120', 'd100')`
+- `await sfu_api_wrapper.departments())`
+- `await sfu_api_wrapper.years())`
+- `await sfu_api_wrapper.terms(2022)`
+
+The course_offering wrapper function also gets the median grade and fail rate from course diggers.
 
 ## Participants
 - Kevin Litvin ktl13@sfu.ca   
@@ -58,26 +96,4 @@ https://github.com/Leaf-Turners/fall-hacks-2023
 
 ## Video Tutorial
 
-
-## Build
-
-Run the command: `python setup.py sdist bdist_wheel`
-
-## Usage
-
-1. Use `pip` to install the module from the `dist` folder, for example: `pip install path/to/local/installation/dist/sfuapiwrapper-1.0.0.tar.gz`
-2. Use the module like this:
-
-```python
-import sfu_api_wrapper
-import asyncio
-
-
-async def main():
-    data = await sfu_api_wrapper.course_offering('cmpt', '120', 'd100')
-    print(data.instructors[0].name)
-
-
-if __name__ == '__main__':
-    asyncio.run(main())
-```
+_To be added._
