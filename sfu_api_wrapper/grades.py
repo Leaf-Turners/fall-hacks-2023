@@ -1,7 +1,7 @@
 import asyncio
 import aiohttp
 import json
-from typing import Dict, Optional, Any
+from typing import Dict, Optional, Any, Tuple
 
 class CourseDataGenerator:
     """
