@@ -1,12 +1,9 @@
 import aiohttp
 import asyncio
 import json
+import os
 
 COURSE_DIGGER_JSON_URL = "http://www.coursediggers.com/data/{}.json"
-
-# Load the course name to ID mapping from a JSON file
-with open('course_name_to_ids.json', 'r') as json_file:
-    course_name_to_id = json.load(json_file)
 
 async def fetch_course_data(session, course_id):
     url = COURSE_DIGGER_JSON_URL.format(course_id)
@@ -15,7 +12,15 @@ async def fetch_course_data(session, course_id):
             data = await response.json()
             return data  # Return the JSON data
 
-async def medianGetter(course_name):
+
+async def median_getter(course_name):
+    current_dir = os.path.dirname(os.path.abspath(__file__))
+    json_file_path = os.path.join(current_dir, 'course_name_to_ids.json')
+
+    # Load the course name to ID mapping from a JSON file
+    with open(json_file_path, 'r') as json_file:
+        course_name_to_id = json.load(json_file)
+
     if course_name in course_name_to_id:
         course_id = course_name_to_id[course_name]
         async with aiohttp.ClientSession() as session:
@@ -72,4 +77,5 @@ async def courseDiggerInfo(department: str, course_number: str) -> dict:
 if __name__ == '__main__':
     #user_input = input("Enter a course name: ")
     result = asyncio.run(courseDiggerInfo('cmpt', '310'))
+
     print(result)

@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 
 
-name = "sfuapiwrapper"
+name = "sfu_api_wrapper"
 version = "1.0.0"
 description = "SFU API wrapper."
 author = "Leaf Turners"
@@ -21,5 +21,6 @@ setup(
     url=url,
     long_description=long_description,
     packages=packages,
+    package_data={'sfu_api_wrapper': ['course_name_to_ids.json']},
     install_requires=install_requires,
 )

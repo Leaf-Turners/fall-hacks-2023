@@ -5,8 +5,10 @@ from dataclasses import dataclass
 
 @dataclass
 class CourseOutline:
-    def __init__(self, raw_data):
+    def __init__(self, raw_data, median_grade):
         raw_data_info = raw_data.get('info', {})
+
+        self.median_grade = median_grade
 
         self.outline_path = raw_data_info.get('outlinePath', '')
         self.delivery_method = raw_data_info.get('deliveryMethod', '')

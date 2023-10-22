@@ -20,7 +20,7 @@ class CourseOutlinesAPI:
 
     @classmethod
     async def get_data(cls, path):
-        url = f"{cls.base_url}/{path}"
+        url = f"{cls.base_url}?{path}"
         return await cls.call_api(url)
 
     @classmethod
