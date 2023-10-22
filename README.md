@@ -1,5 +1,62 @@
-# Python 
+# Python API Wraper
 Fall hacks 2023.
+
+## Description
+
+## File Structure
+```
+fall-hacks-2023
+├─ .gitignore
+├─ README.md
+├─ SFU-Course-Diggers-Web-Scraper-master
+│  ├─ .gitignore
+│  ├─ LICENSE
+│  ├─ README.md
+│  └─ scraper.py
+├─ dist
+│  ├─ sfuapiwrapper-1.0.0-py3-none-any.whl
+│  └─ sfuapiwrapper-1.0.0.tar.gz
+├─ requirements.txt
+├─ setup.py
+└─ sfu_api_wrapper
+   ├─ __init__.py
+   ├─ api_classes
+   │  ├─ __init__.py
+   │  ├─ course.py
+   │  ├─ instructor.py
+   │  └─ schedule.py
+   ├─ course_names_to_ids.json
+   ├─ grades.py
+   ├─ requests.py
+   ├─ scraper.py
+   ├─ version.py
+   └─ wrapper_functions
+      ├─ __init__.py
+      ├─ course_offering.py
+      ├─ departments.py
+      ├─ terms.py
+      └─ years.py
+
+```
+
+## Steps
+
+## Participants
+- Kevin Litvin ktl13@sfu.ca   
+- Ewan Brinkman erb5@sfu.ca  
+- Adam Bahrami afb2@sfu.ca  
+- Marcus Yellowley mty5@sfu.ca  
+- Nolan Campbell ngc2@sfu.ca
+
+## Acknowledgements
+- SFU API https://www.sfu.ca/outlines/help/api.html
+- aiohttp
+
+## GitHub Project Repository
+https://github.com/Leaf-Turners/fall-hacks-2023
+
+## Video Tutorial
+
 
 ## Build
 
@@ -16,18 +73,8 @@ import asyncio
 
 
 async def main():
-    # Get a course.
     data = await sfu_api_wrapper.course_offering('cmpt', '120', 'd100')
     print(data.instructors[0].name)
-        
-    # Get a list of all departments.
-    print(await sfu_api_wrapper.departments())
-    
-    # Get all years SFU's API supports.
-    print(await sfu_api_wrapper.years())
-    
-    # Get all terms in a certain year.
-    print(await sfu_api_wrapper.terms(2022))
 
 
 if __name__ == '__main__':

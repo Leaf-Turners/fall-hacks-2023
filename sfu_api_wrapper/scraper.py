@@ -5,7 +5,6 @@ import os
 
 COURSE_DIGGER_JSON_URL = "http://www.coursediggers.com/data/{}.json"
 
-
 async def fetch_course_data(session, course_id):
     url = COURSE_DIGGER_JSON_URL.format(course_id)
     async with session.get(url) as response:
@@ -30,7 +29,8 @@ async def median_getter(course_name):
         if 'name' in course_data and 'data' in course_data:
             course_name = course_data['name']
             median_grade = course_data['data'][0][0]
-            return f"Course Name: {course_name}, Median Grade: {median_grade}"
+            fail_rate = course_data['data'][0][1]  # Added to retrieve the fail rate
+            return f"Course Name: {course_name}, Median Grade: {median_grade}, Fail Rate: {fail_rate}%"
         else:
             return "Failed to fetch data for the course."
     else:
