@@ -1,5 +1,7 @@
 # Python SFU API Wrapper
 
+We used AI to simplify code, and give a foundation for async https communication.
+
 ## Description
 
 An asynchronous API wrapper for SFU's API.
