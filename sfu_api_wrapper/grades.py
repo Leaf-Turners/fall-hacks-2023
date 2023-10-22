@@ -28,7 +28,7 @@ async def main():
 
     course_names_to_ids = {data.get('name', ''): course_id for course_id, data in results if data is not None}
 
-    with open('course_names_to_ids.json', 'w') as json_file:
+    with open('course_name_to_ids.json', 'w') as json_file:
         json.dump(course_names_to_ids, json_file, indent=4)
 
 

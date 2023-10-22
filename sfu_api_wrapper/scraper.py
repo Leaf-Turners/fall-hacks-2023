@@ -5,7 +5,7 @@ import json
 COURSE_DIGGER_JSON_URL = "http://www.coursediggers.com/data/{}.json"
 
 # Load the course name to ID mapping from a JSON file
-with open('course_names_to_ids.json', 'r') as json_file:
+with open('course_name_to_ids.json', 'r') as json_file:
     course_name_to_id = json.load(json_file)
 
 async def fetch_course_data(session, course_id):
