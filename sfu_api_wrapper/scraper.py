@@ -15,24 +15,22 @@ async def fetch_course_data(session, course_id):
             data = await response.json()
             return data  # Return the JSON data
 
-async def main():
-    user_input = input("Enter a course name: ")
-    if user_input in course_name_to_id:
-        course_id = course_name_to_id[user_input]
-
-        print(f"Fetching data for {user_input}...")
-
+async def medianGetter(course_name):
+    if course_name in course_name_to_id:
+        course_id = course_name_to_id[course_name]
         async with aiohttp.ClientSession() as session:
             course_data = await fetch_course_data(session, course_id)
-
-        if 'name' in course_data:
-            print(f"Course Name: {course_data['name']}")
-            print(f"Median Grade: {course_data['data'][0][0]}")
-            # Add more attributes as needed
+        
+        if 'name' in course_data and 'data' in course_data:
+            course_name = course_data['name']
+            median_grade = course_data['data'][0][0]
+            return f"Course Name: {course_name}, Median Grade: {median_grade}"
         else:
-            print("Failed to fetch data for the course.")
+            return "Failed to fetch data for the course."
     else:
-        print("Course name not found in the dictionary.")
+        return "Course name not found in the dictionary."
 
 if __name__ == '__main__':
-    asyncio.run(main())
+    user_input = input("Enter a course name: ")
+    result = asyncio.run(medianGetter(user_input))
+    print(result)
