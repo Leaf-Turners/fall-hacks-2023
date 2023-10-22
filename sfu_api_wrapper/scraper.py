@@ -7,11 +7,18 @@ COURSE_DIGGER_JSON_URL = "http://www.coursediggers.com/data/{}.json"
 
 current_dir = os.path.dirname(os.path.abspath(__file__))
 json_file_path = os.path.join(current_dir, 'course_name_to_ids.json')
+<<<<<<< HEAD
 
 # Load the course name to ID mapping from a JSON file
 with open(json_file_path, 'r') as json_file:
     course_name_to_id = json.load(json_file)
 
+=======
+
+    # Load the course name to ID mapping from a JSON file
+with open(json_file_path, 'r') as json_file:
+    course_name_to_id = json.load(json_file)
+>>>>>>> 431f762d58f7adab3218cbd444b5a18298f8e4df
 
 async def fetch_course_data(session, course_id):
     url = COURSE_DIGGER_JSON_URL.format(course_id)
