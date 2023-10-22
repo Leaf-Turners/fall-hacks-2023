@@ -1,2 +1,5 @@
+from ..requests import CourseOutlinesAPI
+
+
 async def departments(year: int = 'current', term: str = 'current'):
-    print('departments')
+    return await CourseOutlinesAPI.get_departments(year, term)
