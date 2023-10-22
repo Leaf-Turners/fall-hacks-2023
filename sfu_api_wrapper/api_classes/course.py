@@ -1,19 +1,35 @@
 from .instructor import Instructor
 from .schedule import CourseSchedule
 from dataclasses import dataclass
-
+from typing import List, Dict, Any
 
 @dataclass
 class CourseOutline:
-    def __init__(self, raw_data, median_grade):
+    """
+    Represents a course outline with various attributes.
+
+    Args:
+        raw_data (dict): Raw data containing course outline information.
+        median_grade (str): The median grade for the course.
+        fail_rate (float): The failure rate for the course.
+
+    Attributes:
+        median_grade (str): The median grade for the course.
+        fail_rate (float): The failure rate for the course.
+        outline_path (str): The outline path for the course.
+        # ... (other attributes)
+
+    """
+
+    def __init__(self, raw_data: Dict[str, Any], median_grade: str, fail_rate: float):
         raw_data_info = raw_data.get('info', {})
 
         self.median_grade = median_grade
+        self.fail_rate = fail_rate
 
         self.outline_path = raw_data_info.get('outlinePath', '')
         self.delivery_method = raw_data_info.get('deliveryMethod', '')
-        self.departmental_ugrad_notes = raw_data_info.get(
-            'departmentalUgradNotes', '')
+        self.departmental_ugrad_notes = raw_data_info.get('departmentalUgradNotes', '')
         self.designation = raw_data_info.get('designation', '')
         self.type = raw_data_info.get('type', '')
         self.course_details = raw_data_info.get('courseDetails', '')
@@ -40,3 +56,4 @@ class CourseOutline:
         self.instructors = [Instructor(instructor_data) for instructor_data in raw_data.get('instructor', [])]
         self.course_schedule = [CourseSchedule(schedule_data) for schedule_data in raw_data.get('courseSchedule', [])]
         self.exam_schedule = [CourseSchedule(schedule_data) for schedule_data in raw_data.get('examSchedule', [])]
+

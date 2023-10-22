@@ -36,8 +36,8 @@ async def fetch_course_data(session, course_id):
             return data  # Return the JSON data
 
 
-async def median_getter(course_name):
-    
+async def get_median_grade(course_name):
+
     """
     Retrieves the median grade for a given course and returns it as a string.
 
@@ -58,14 +58,15 @@ async def median_getter(course_name):
         if 'name' in course_data and 'data' in course_data:
             course_name = course_data['name']
             median_grade = course_data['data'][0][0]
-            return f"Course Name: {course_name}, Median Grade: {median_grade}"
+            return median_grade
         else:
             return "Failed to fetch data for the course."
     else:
         return "Course name not found in the dictionary."
 
-async def failRate(department: str, course_number: str) -> str:
-    
+
+async def get_fail_rate(department: str, course_number: str) -> str:
+
     """
     Retrieves the fail rate for a given course and returns it as a string.
 
@@ -94,7 +95,8 @@ async def failRate(department: str, course_number: str) -> str:
             return "Failed to fetch data for the course."
     else:
         return "Course name not found in the dictionary."
-    
+
+
 async def courseDiggerInfo(department: str, course_number: str) -> dict:
     """
     Retrieves detailed course information from CourseDiggers API.
