@@ -24,14 +24,52 @@ async def medianGetter(course_name):
         if 'name' in course_data and 'data' in course_data:
             course_name = course_data['name']
             median_grade = course_data['data'][0][0]
-            fail_rate = course_data['data'][0][1]  # Added to retrieve the fail rate
-            return f"Course Name: {course_name}, Median Grade: {median_grade}, Fail Rate: {fail_rate}%"
+            return f"Course Name: {course_name}, Median Grade: {median_grade}"
         else:
             return "Failed to fetch data for the course."
     else:
         return "Course name not found in the dictionary."
 
+async def failRate(department: str, course_number: str) -> str:
+    """
+    retrive the fail rate for the course 
+    """
+    department = department.upper()
+    course_name = department + " " + course_number
+    if course_name in course_name_to_id:
+        course_id = course_name_to_id[course_name]
+        async with aiohttp.ClientSession() as session:
+            course_data = await fetch_course_data(session, course_id)
+        
+        if 'name' in course_data and 'data' in course_data:
+        
+            fail_rate = course_data['data'][0][1]  # Added to retrieve the fail rate
+            return fail_rate
+        else:
+            return "Failed to fetch data for the course."
+    else:
+        return "Course name not found in the dictionary."
+    
+async def courseDiggerInfo(department: str, course_number: str) -> dict:
+    """
+    get json file for for the course digger information
+    """
+    department = department.upper()
+    course_name = department + " " + course_number
+    if course_name in course_name_to_id:
+        course_id = course_name_to_id[course_name]
+        async with aiohttp.ClientSession() as session:
+            course_data = await fetch_course_data(session, course_id)
+        
+        if 'name' in course_data and 'data' in course_data:
+            return course_data
+        else:
+            return "Failed to fetch data for the course."
+    else:
+        return "Course name not found in the dictionary."
+
+    
 if __name__ == '__main__':
-    user_input = input("Enter a course name: ")
-    result = asyncio.run(medianGetter(user_input))
+    #user_input = input("Enter a course name: ")
+    result = asyncio.run(failRate('cmpt', '310'))
     print(result)
