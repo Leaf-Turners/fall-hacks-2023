@@ -52,7 +52,8 @@ fall-hacks-2023
 
 1. Download the source code.
 2. Make sure you have python installed.
-3. Run the command: `python setup.py sdist bdist_wheel`
+3. Make sure you install `wheel` with pip.
+4. Run the command: `python setup.py sdist bdist_wheel`
 
 ### Usage
 
