@@ -98,4 +98,50 @@ https://github.com/Leaf-Turners/fall-hacks-2023
 
 ## Video Tutorial
 
-_To be added._
+### Video Link
+
+### Code Example In The Video
+
+```python
+import sfu_api_wrapper
+import asyncio
+
+
+async def main():
+    print("Course offering:\n")
+    course_offering = await sfu_api_wrapper.course_offering('cmpt', '120', 'd100')
+    print(course_offering.title)
+    print(course_offering.instructors[0].name)
+    print(course_offering.designation)
+    print("(And the course offering class has more more properties)")
+    
+    print("\n\n\nAll departments:\n")
+    departments = await sfu_api_wrapper.departments()
+    for department in departments:
+        print(department['text'], end=" ")
+    
+    print("\n\n\nAll terms:")
+    terms = await sfu_api_wrapper.terms(2022)
+    print(terms)
+    
+    print("\n\n\nAll years:")
+    years = await sfu_api_wrapper.years()
+    print(years)
+    
+    # The wrapper functions can also have a certain year and term specified.
+    
+    print("\n\n\nCourse offering, specific time (fall 2016):\n")
+    course_offering = await sfu_api_wrapper.course_offering('cmpt', '120', 'd100', 2016, 'fall')
+    print(course_offering.title)
+    print(course_offering.instructors[0].name)
+    print(course_offering.designation)
+    print("(And the course offering class has more more properties)")
+    
+    print("\n\n\nAll departments, specific time (spring 2018):\n")
+    departments = await sfu_api_wrapper.departments(2018, 'spring')
+    for department in departments:
+        print(department['text'], end=" ")
+
+if __name__ == '__main__':
+    asyncio.run(main())
+```

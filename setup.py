@@ -9,6 +9,7 @@ url = "https://github.com/Leaf-Turners/fall-hacks-2023"
 long_description = "SFU API wrapper."
 
 install_requires = [
+    'aiohttp',
 ]
 
 packages = find_packages()
