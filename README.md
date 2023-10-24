@@ -101,6 +101,8 @@ https://github.com/Leaf-Turners/fall-hacks-2023
 
 ### Video Link
 
+https://www.dropbox.com/scl/fi/cppz8ws9ucoqktzlxj3vp/setup_example.mp4?rlkey=j8mqp69mqx5gsf16fmdjcq0h2&dl=0
+
 ### Code Example In The Video
 
 ```python
