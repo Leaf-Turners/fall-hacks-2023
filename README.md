@@ -99,11 +99,21 @@ https://github.com/Leaf-Turners/fall-hacks-2023
 
 ## Video Tutorial
 
-### Video Link
+### Video Link (The Max 3 Minute Video Of How To Compile And Run Video)
 
 https://www.dropbox.com/scl/fi/cppz8ws9ucoqktzlxj3vp/setup_example.mp4?rlkey=j8mqp69mqx5gsf16fmdjcq0h2&dl=0
 
-### Code Example In The Video
+See the bottom of this README for the code used in this video.
+
+### Bonus Video Showing Example Usage Of Our Library
+
+https://www.dropbox.com/scl/fi/iqe3fill4a18lb61uz83q/example_usage.mp4?rlkey=arbvcxrwkr892aik7kth7djfh&dl=0
+
+This video showcases the seamless integration of our Python SFU API Wrapper with the Python Google Calendar API. In this demonstration, we highlight our hackathon project's functionality, which involves retrieving exam and lecture schedules for Fall 2023 CMPT 120 courses from SFU and seamlessly incorporating them into a Google Calendar. This video provides just one example of the versatile applications of our Python SFU API Wrapper project. Please note that the video may have some delay due to the synchronous call times of the Google Calendar API.
+
+For access to the source code used in this video, visit our GitHub repository: https://github.com/Leaf-Turners/GCalendar-SFU-API
+
+### Code Example In The Max 3 Minute How To Compile And Run Video
 
 ```python
 import sfu_api_wrapper
